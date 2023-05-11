@@ -1,0 +1,223 @@
+# Getting Started with node server App
+
+## Installation
+
+Enter to the server folder
+
+```bash
+cd server
+```
+
+Install the node_modules
+
+```bash
+npm i
+```
+
+## Available Scripts
+
+you can run:
+
+### `npm start`
+
+- It will run the app with node
+- The page will not reload if you make edits.
+
+### `npm run dev`
+
+- Runs the app with nodemon
+- The page will reload if you make edits
+- The print at the terminal will be purple with the message:
+
+`server run on: http://:localhost : 8181`
+
+And if there are no login errors you should see the message painted in purple:
+
+`connected to MongoDb!`
+
+### Available Routes
+
+#### Register a new user
+
+```http
+  POST /api/auth/register
+```
+the site is connected to atlas so there should be a user already registered as admin
+email: admin@gmail.com
+password: 123456aA!
+if not you can create admin through postman.
+to create a admin user please create through postman with this object:
+the rest of the users can be created through the site and be updated to admin aswell.
+{
+    "name":"admin",
+    "email":"admin@gmail.com",
+    "password":"123456aA!",
+    "phone":"0000000000",
+    "isAdmin":true
+}
+
+#### Login a user
+
+```http
+  POST /api/auth/login
+```
+
+#### For Information about a user
+
+```http
+  GET /api/auth/userInfo
+```
+
+#### If user forget password
+
+```http
+  POST /api/auth/forgotpassword
+  
+```
+
+#### If user resets password
+
+```http
+  POST /api/resetpassword/:token
+  
+```
+
+
+#### To receive all users
+
+```http
+  GET /api/auth/showallusers
+```
+
+#### To delete user
+
+```http
+  DELETE /api/auth/deleteuser/:id
+```
+you will need to provide admin token to get an answer from this api
+
+#### To get user by id
+
+```http
+  GET /api/auth/getuserbyid/:id
+```
+you will need to provide admin token to get an answer from this api
+
+#### To update user status
+
+```http
+  PATCH /api/auth/updateuser
+```
+you will need to provide admin token to get an answer from this api
+
+
+
+
+#### To add product
+
+```http
+  POST /api/products/add-product
+```
+you will need to provide admin token to get an answer from this api
+
+#### To get all products
+
+```http
+  GET /api/products/all-products
+  
+  #### To get  product by id
+
+```http
+  GET /api/products/getproductbyid/:id
+```
+```
+ #### To update product by id
+
+```http
+  PATCH /api/products/updateproduct
+  
+  you will need to provide admin token to get an answer from this api
+```
+
+#### To delete product by id
+
+```http
+  DELETE /api/products/deleteproduct/:id
+  
+  you will need to provide admin token to get an answer from this api
+```
+
+
+#### To add product to cart
+
+```http
+  POST /api/cart/addtocart
+  
+  you will need to provide token to get an answer from this api
+```
+
+#### To add check if item exists in cart
+
+```http
+  get /api/cart/:userId/cart/:productId
+  
+```
+you will need to provide token to get an answer from this api
+
+#### To update quantity of product in cart
+
+```http
+  PATCH /api/cart/updatecart
+  you will need to provide token to get an answer from this api
+  
+```
+#### To update quantity of product in cart from cart
+
+```http
+  PATCH /api/cart/updatecartfrommycartpage
+  
+```
+you will need to provide token to get an answer from this api
+
+#### To get all items in cart
+
+```http
+  GET /api/cart/my-cart
+  
+```
+you will need to provide token to get an answer from this api
+
+#### To delete item from cart
+
+```http
+  DELETE /api/cart/deleteitemfromcart/:id
+  
+```
+  you will need to provide token to get an answer from this api
+  
+  #### To update item from cart as admin
+
+```http
+  PATCH /api/cart/adminupdate
+  
+```
+  you will need to provide token of admin to get an answer from this api
+  
+   #### To delete item from cart as admin
+
+```http
+  DELETE /api/cart/admindelete
+  
+```
+  you will need to provide token of admin to get an answer from this api
+
+
+
+
+
+
+
+
+
+
+
